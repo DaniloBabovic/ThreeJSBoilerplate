@@ -38,7 +38,7 @@ class App {
 
         this.models = new Models ( this )
 
-        window.addEventListener( 'resize', ( ) => ( this.onWindowResize ( ) ), false )
+        window.addEventListener( 'resize', ( ) => ( this.onWindowResize ( ) ) )
 
         this.render( )
     }

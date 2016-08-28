@@ -5,15 +5,15 @@ class Sky {
     constructor ( app ) {
 
         this.app = app
-
+        this.img_dir = app.config.data.img_dir
     	this.materials = [
 
-            this.createMaterial( 'three_app/img/skyX55+x.png' ), // right
-    		this.createMaterial( 'three_app/img/skyX55-x.png' ), // left
-    		this.createMaterial( 'three_app/img/skyX55+y.png' ), // top
-    		this.createMaterial( 'three_app/img/skyX55-y.png' ), // bottom
-    		this.createMaterial( 'three_app/img/skyX55+z.png' ), // back
-    		this.createMaterial( 'three_app/img/skyX55-z.png' )  // front
+            this.createMaterial( this.img_dir + 'skyX55+x.png' ), // right
+    		this.createMaterial( this.img_dir + 'skyX55-x.png' ), // left
+    		this.createMaterial( this.img_dir + 'skyX55+y.png' ), // top
+    		this.createMaterial( this.img_dir + 'skyX55-y.png' ), // bottom
+    		this.createMaterial( this.img_dir + 'skyX55+z.png' ), // back
+    		this.createMaterial( this.img_dir + 'skyX55-z.png' )  // front
 
     	];
 

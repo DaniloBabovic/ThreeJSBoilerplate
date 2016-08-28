@@ -6,6 +6,7 @@
         "three_app/build/jszip-utils.min.js",
         "three_app/build/jszip.min.js"
     ],
+    "img_dir" : "three_app/img/",
     "script_zip": ["three_app/build/three.min.js.zip"],
 
     "containerLeft" : 100,
