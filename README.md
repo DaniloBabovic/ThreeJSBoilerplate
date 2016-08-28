@@ -23,8 +23,8 @@ This boilerplate is written in ES6 with predictive and simple structure.
 
 ### Screen Shot
 
-![alt tag](https://raw.githubusercontent.com/DaniloBabovic/ThreeJSBoilerplate/master/img/screen_shot.png.png)
+![alt tag](https://raw.githubusercontent.com/DaniloBabovic/ThreeJSBoilerplate/master/readme/screen_shot.png)
 
 ### Directory structure
 
-![alt tag](https://raw.githubusercontent.com/DaniloBabovic/ThreeJSBoilerplate/master/img/Directory_Layout.png)
+![alt tag](https://raw.githubusercontent.com/DaniloBabovic/ThreeJSBoilerplate/master/readme/Directory_Layout.png)
