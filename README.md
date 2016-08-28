@@ -13,18 +13,24 @@ This boilerplate is written in ES6 with predictive and simple structure.
  * ES6 - babelify
  * Bundle script - uglify
  * ...
- * Zipped three.min.js
+ * Zipped ThreeJS lib - three.min.js.zip
  * Dynamic script loading
- * Compressed script loading
- * Compressed model loading
- * Scene object configurations are in JSON file
- * Model configurations are in JSON file
+ * Compressed model loading - obj3d.zip
+ * Scene object parameters are in JSON file
+ * Model parameters are in JSON file
+ * 3D object as progress bar
  * Zero project dependences - main scripts are preloaded
 
-### Screen Shot
+### Screenshot
 
 ![alt tag](https://raw.githubusercontent.com/DaniloBabovic/ThreeJSBoilerplate/master/readme/screen_shot.png)
 
 ### Directory structure
 
 ![alt tag](https://raw.githubusercontent.com/DaniloBabovic/ThreeJSBoilerplate/master/readme/Directory_Layout.png)
+
+### Documentation & Live  
+
+http://sitegeneratorjs.appspot.com/three_doc
+
+http://sitegeneratorjs.appspot.com/three
