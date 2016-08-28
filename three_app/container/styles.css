@@ -1,0 +1,12 @@
+.app3d_container {
+
+    width: 100%;
+    height: 100%;
+}
+
+.app3d_render_container {
+
+    width: 100%;
+    height: 100%;
+    float: left;
+}

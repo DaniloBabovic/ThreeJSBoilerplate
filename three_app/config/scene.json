@@ -1,0 +1,79 @@
+{
+    "antialias" : true,
+    "camera_position": [0, 150, 400],
+    "ambientLight": "#0e0f0d",
+    "font_paths" : {
+        "helvetiker_bold": "three_app/fonts/helvetiker_bold.typeface.json",
+        "helvetiker_regular": "three_app/fonts/helvetiker_regular.typeface.json"
+    },
+    "spot_lights" : {
+
+        "_1": {
+            "color":        "#ff7800",
+            "position":     [ -160, 250, 100 ],
+            "intensity":    1,
+            "distance":     1600,
+            "angle":        0.624,
+            "exponent":     19.3,
+            "decay":        7.7,
+            "tar_position": [ 150, 10, 100 ]
+        }
+
+    },
+
+    "point_lights" : {
+
+        "_1": {
+            "color":        "#ff4400",
+            "position":     [ 120, 100, 200 ],
+            "intensity":    1.5,
+            "distance":     350,
+            "decay":        0.4
+        },
+        "_2": {
+            "color":        "#ffe100",
+            "position":     [ -200, 140, 50 ],
+            "intensity":    1.5,
+            "distance":     300,
+            "decay":        3.4
+        },
+        "_3": {
+            "color":        "#00EE00",
+            "position":     [ -400, 40, -250 ],
+            "intensity":    1.2,
+            "distance":     400,
+            "decay":        2
+        },
+        "_4": {
+            "color":        "#EE0000",
+            "position":     [ 200, 400, -200 ],
+            "intensity":    1,
+            "distance":     600,
+            "decay":        0.2
+        },
+        "_5": {
+            "color":        "#ffffff",
+            "position":     [ -40, 60, 40 ],
+            "intensity":    1,
+            "distance":     350,
+            "decay":        0.4
+        }
+    },
+
+    "floor" : {
+
+        "materialName": "MeshPhongMaterial",
+        "paramMaterial": {
+            "color": "#FFFFFF",
+            "specular": "#fcfcfc",
+            "emissive" : "#281900",
+            "emissiveIntensity" : 0.2,
+            "shininess" : 8
+        },
+        "image_path": "three_app/img/checkerboard.jpg",
+        "paramPlain": [ 1200, 1200, 1, 1],
+        "position": [ 0, -100, 0],
+        "rotation": [ -0.5, 0, 0],
+        "scale":    [ 1, 1, 1]
+    }
+}
