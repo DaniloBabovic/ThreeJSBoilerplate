@@ -18,6 +18,7 @@
     "containerHeight": 700,
 
     "obj_zip_path": ["three_app/3dobjects/obj3d.zip"],
+    "obj_zip_length": 2662019,
     "objects_3d": {
 
         "crown.json" : {
