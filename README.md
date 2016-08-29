@@ -33,4 +33,4 @@ This boilerplate is written in ES6 with predictive and simple structure.
 
 http://sitegeneratorjs.appspot.com/three_doc
 
-http://sitegeneratorjs.appspot.com/three
+http://sitegeneratorjs.appspot.com/three_boilerplate/index.html?page=1
