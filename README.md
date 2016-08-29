@@ -1,11 +1,11 @@
 ThreeJS Boilerplate for node.js
 =================================
 
-#### Use case
+### Usage
 
-If your three.js project need to be inserted into Web page of the main project,
+If your three.js project needs to be inserted into a Web page of the main project,
 this boilerplate will save you at least one week of work.
-This boilerplate is written in ES6 with predictive and simple structure.
+This boilerplate is written in ES6 with a predictive and simple structure.
 
 ### Features
 
@@ -19,7 +19,7 @@ This boilerplate is written in ES6 with predictive and simple structure.
  * Scene object parameters are in JSON file
  * Model parameters are in JSON file
  * 3D object as progress bar
- * Zero project dependences - main scripts are preloaded
+ * Zero project dependencies - main scripts are preloaded
 
 ### Screenshot
 
