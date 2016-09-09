@@ -24,12 +24,12 @@ class Prepare {
 
             let div = document.createElement("div")
             div.setAttribute("id", "div_app_3d")
-            div.style["position"] = 'absolute'
-            div.style["left"] = this.config.data.containerLeft + 'px'
-            div.style["top"] = this.config.data.containerTop + 'px'
+            div.style["position"]       = 'absolute'
+            div.style["left"]           = this.config.data.containerLeft + 'px'
+            div.style["top"]            = this.config.data.containerTop + 'px'
             div.style["backgound-color"] = this.config.data.containerBackgoundColor
-            div.style["width"] = this.config.data.containerWidth + 'px'
-            div.style["height"] = this.config.data.containerHeight + 'px'
+            div.style["width"]          = this.config.data.containerWidth + 'px'
+            div.style["height"]         = this.config.data.containerHeight + 'px'
             document.body.appendChild(div);
             //console.log("yo");
             this.container = div
@@ -98,14 +98,6 @@ class Prepare {
         this.app3d_render_container = document.getElementById(
 
             "app3d_render_container"
-        )
-        this.app3d_render_container_loading_div = document.getElementById(
-
-            "app3d_render_container_loading_div"
-        )
-        this.app3d_loading_div_text = document.getElementById(
-
-            "app3d_loading_div_text"
         )
     }
 }

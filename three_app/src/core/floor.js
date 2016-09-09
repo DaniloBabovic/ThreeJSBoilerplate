@@ -10,9 +10,11 @@ class Floor {
         this.data = app.config.scene.floor
 
         // Read floor JSON params: three_app/config/scene.json
-        this.materialName = this.data.materialName
-        this.paramMaterial = this.data.paramMaterial
-        this.image_path = this.data.image_path
+        this.materialName = this.data.material.name
+        this.name_custom = this.data.material.name_custom
+        this.params = this.data.material.params
+
+        this.file_path = this.data.file_path
         this.paramPlain = this.data.paramPlain
         this.position = this.data.position
         this.rotation = Common.piMultiply ( this.data.rotation )
@@ -30,20 +32,26 @@ class Floor {
 
         let loader = new THREE.TextureLoader ( )
         loader.crossOrigin = '';
-        let texture = loader.load ( this.image_path, onDone )
+        let texture = loader.load ( this.file_path, onDone )
 
 
-        this.paramMaterial.map = texture
+        this.params.map = texture
 
         if ( this.materialName == "MeshPhongMaterial" ) {
 
-    		meshMaterial = new THREE.MeshPhongMaterial( this.paramMaterial )
+    		meshMaterial = new THREE.MeshPhongMaterial( this.params )
+
+    	} else if ( this.materialName == "MeshLambertMaterial" ) {
+
+    		meshMaterial = new THREE.MeshLambertMaterial( this.params )
 
     	} else  {
 
-    		meshMaterial = new THREE.MeshLambertMaterial( this.paramMaterial )
+            meshMaterial = new THREE.MeshStandardMaterial( this.params )
 
-    	}
+        }
+
+        meshMaterial.envMap = this.app.sky.cubeMap
 
     	var geometry = new THREE.PlaneGeometry	( ...this.paramPlain )
     	/*

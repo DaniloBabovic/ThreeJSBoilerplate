@@ -1,6 +1,7 @@
 import DownloadObjZip from '../utils/loaders/download_obj_zip.js'
 import Common from '../utils/common.js'
 import RotateAnimation from '../animations/rotate.js'
+
 class Models {
 
     constructor ( app ) {
@@ -85,11 +86,17 @@ class Models {
         // Object 3D JSON params from: three_app/config/config.json
         let data = this.app.config.data.objects_3d[ fileName ]
         let materialParams = data.material.params
+        let material = this.app.materials.getReusableMaterial (
+
+             data.material.name,
+             data.material.name_custom,
+             data.material.params,
+             data.material.env_map_name
+        )
 
         let object = new THREE.JSONLoader().parse ( json )
         object.geometry.center( )
 
-        let material = new THREE.MeshPhongMaterial( materialParams )
         let mesh = new THREE.Mesh( object.geometry, material );
 
         mesh.position.set ( ...data.position )

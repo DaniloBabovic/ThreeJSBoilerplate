@@ -75,7 +75,6 @@ class Common {
 			if ( obj.hasOwnProperty( key ) ) {
 
 				keys.push( key )
-
 			}
 		}
 		return keys

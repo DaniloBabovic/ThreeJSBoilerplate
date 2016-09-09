@@ -1,4 +1,4 @@
-
+import Common from  "../utils/common.js"
 class Progress {
 
     constructor ( app, text = 'Loading' ) {
@@ -57,11 +57,13 @@ class Progress {
         this.parameters = parameters
     }
 
-    onProggresEvent ( event, text = "" ) {
+    onProggresEvent ( event, text = "", objLength = 2662019 ) {
 
         if ( event != null ) {
             let loaded = event.loaded
             let total = event.total
+            if ( Common.isNull( total) ) total = objLength
+            if ( total == 0 ) total = objLength
             let percent = (loaded / total) * 100
             percent = Math.floor (percent)
             text = this.text + ' ' + percent

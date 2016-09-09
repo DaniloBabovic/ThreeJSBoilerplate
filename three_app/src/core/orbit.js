@@ -26,7 +26,7 @@ class Orbit {
 		this.controls.rotateSpeed = 0.4
         //this.controls.minPolarAngle = Math.PI / 8;
         //this.controls.maxPolarAngle = Math.PI / 8 * 7;
-        this.controls.maxDistance = 1000;
+        this.controls.maxDistance = 1200;
         this.controls.minDistance = 50;
         this.controls.enableKeys = true;
         this.controls.enablePan = true;
@@ -38,7 +38,6 @@ class Orbit {
 			this.controlsTarget.position.x,
 			this.controlsTarget.position.y,
 			this.controlsTarget.position.z
-
 		)
 
 		this.controls.update ( )

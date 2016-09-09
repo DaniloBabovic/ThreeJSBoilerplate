@@ -9,6 +9,7 @@ class DownloadObjZip {
         this.onProgress = onProgress
 
         this.obj_zip_path = this.config.data.obj_zip_path
+        this.obj_zip_length = this.config.data.obj_zip_length
         this.objects_3d = this.config.data.objects_3d
 
         this.setPromise ( )
@@ -46,7 +47,7 @@ class DownloadObjZip {
         const updateProgress = ( evt ) => {
             if (this.onProgress != null ) {
 
-                this.onProgress( evt )
+                this.onProgress( evt, "", this.obj_zip_length )
 
             } else {
 

@@ -14,8 +14,8 @@
 
     "containerBackgoundColor" : "#00AAAA",
 
-    "containerWidth": 1200,
-    "containerHeight": 700,
+    "containerWidth": 900,
+    "containerHeight": 420,
 
     "obj_zip_path": ["three_app/3dobjects/obj3d.zip"],
     "obj_zip_length": 2662019,
@@ -23,20 +23,22 @@
 
         "crown.json" : {
 
-            "position": [ -100, 100, 0 ],
-            "scale":    [ 40, 40, 40 ],
+            "position": [ -200, 100, 0 ],
+            "scale":    [ 60, 60, 60 ],
             "rotation": [ 0.5, 0, 0 ],
 
             "material": {
 
-                "name":  "MeshPhongMaterial",
+                "name":  "MeshStandardMaterial",
+                "name_custom": "silver",
                 "params": {
-                    "color": "#999900",
-                    "specular": "#ffff00",
-                    "emissive" : "#ffff00",
-                    "emissiveIntensity" : 0.4,
-                    "shininess" : 12
-                }
+                    "color": "#FFFFFF",
+                    "roughness": 0.4,
+                    "metalness" : 1,
+                    "side" : 0
+                },
+                "env_map_name" : "sky_box",
+                "map_name" : ""
             }
         },
 
@@ -48,14 +50,16 @@
 
             "material": {
 
-                "name":  "MeshPhongMaterial",
+                "name":  "MeshStandardMaterial",
+                "name_custom": "gold",
                 "params": {
-                    "color": "#AAAA00",
-                    "specular": "#0cfcfc",
-                    "emissive" : "#FF1900",
-                    "emissiveIntensity" : 0.4,
-                    "shininess" : 10
-                }
+                    "color": "#AA9900",
+                    "roughness": 0.1,
+                    "metalness" : 0.5,
+                    "side" : 0
+                },
+                "env_map_name" : "sky_box",
+                "map_name" : ""
             }
         }
     }

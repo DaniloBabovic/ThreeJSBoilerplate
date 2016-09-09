@@ -1,81 +1,71 @@
-//import THREE  from 'three'
-
 class Sky {
 
     constructor ( app ) {
 
         this.app = app
-        this.img_dir = app.config.data.img_dir
-    	this.materials = [
+        this.scene = app.scene
+        this.skyBoxMaterialName = app.config.scene.skyBoxMaterialName
 
-            this.createMaterial( this.img_dir + 'skyX55+x.png' ), // right
-    		this.createMaterial( this.img_dir + 'skyX55-x.png' ), // left
-    		this.createMaterial( this.img_dir + 'skyX55+y.png' ), // top
-    		this.createMaterial( this.img_dir + 'skyX55-y.png' ), // bottom
-    		this.createMaterial( this.img_dir + 'skyX55+z.png' ), // back
-    		this.createMaterial( this.img_dir + 'skyX55-z.png' )  // front
+        this.env_texture = app.textures.getEnvTexture (
+            this.skyBoxMaterialName
+        )
+        
+        this.getCubeMap ()
+        this.getMaterial ( )
 
-    	];
+        this.skyBox = new THREE.Mesh(
 
-    	// Create a large cube
-    	let mesh = new THREE.Mesh 	(
-
-			new THREE.BoxGeometry( 1500, 1500, 1500, 1, 1, 1 ),
-			new THREE.MeshFaceMaterial( this.materials )
-
-		);
-
-    	// Set the x scale to be -1, this will turn the cube inside out
-    	mesh.scale.set ( -1, 1, 1 );
-    	mesh.position.y = -50;
-    	mesh.rotation.y = Math.PI/2;
-    	app.scene.add( mesh );
-        this.i = 0
+            new THREE.CubeGeometry( 3000, 3000, 3000 ),
+            this.skyBoxMaterial
+        )
+        this.scene.add ( this.skyBox )
     }
 
-    createMaterial ( path ) {
+    getMaterial ( ) {
 
-        let onDone = ( event ) => {
+        let cubeShader = THREE.ShaderLib['cube'];
+        cubeShader.uniforms['tCube'].value = this.cubeMap
 
-            this.app.render ( )
-        }
-		let loader = new THREE.TextureLoader ( )
-        loader.crossOrigin = '';
-        let texture = loader.load ( path, onDone );
-		let material = new THREE.MeshBasicMaterial ( { map: texture, overdraw: 0.5, fog: true } );
-
-		return material;
-
-	}
-
-    onTexture ( texture ) {
-
-        this.materials[ index ] = texture;
-        this.i += 1;
-        if ( this.i == 6 )
-        {
-            // Create a large cube
-            var mesh = new THREE.Mesh 	(
-                                            new THREE.BoxGeometry( 1000, 1000, 1000, 1, 1, 1 ),
-                                            new THREE.MeshFaceMaterial( materials )
-                                        );
-
-            // Set the x scale to be -1, this will turn the cube inside out
-            mesh.scale.set ( -1, 1, 1 );
-            //mesh.position.y = 400;
-            mesh.rotation.y = Math.PI/2;
-            this.app.scene.add( mesh );
-            this.app.render()
-        }
+        this.skyBoxMaterial = new THREE.ShaderMaterial ( {
+                fragmentShader: cubeShader.fragmentShader,
+                vertexShader: cubeShader.vertexShader,
+                uniforms: cubeShader.uniforms,
+                depthWrite: false,
+                side: THREE.BackSide
+            }
+        )
     }
 
-    loadMaterial ( index, path ) {
+    getCubeMap ( ) {
 
-		let loader = new THREE.TextureLoader( )
-        loader.crossOrigin = '';
-        let notify = ( texture ) => { this.onTexture ( texture ) }
-		loader.load( path, notify )
-	}
+        const getSide = (x, y, size, image) => {
+
+            var canvas = document.createElement('canvas');
+            canvas.width = size;
+            canvas.height = size;
+
+            var context = canvas.getContext('2d');
+            context.drawImage(image, -x * size, -y * size);
+
+            return canvas;
+
+        };
+
+        this.cubeMap = new THREE.Texture([])
+        this.cubeMap.format = THREE.RGBFormat;
+        this.cubeMap.flipY = false;
+
+        let size = this.env_texture.size
+        let image = this.env_texture.image
+
+        this.cubeMap.image[ 0 ] = getSide( 2, 1, size, image ) // px
+        this.cubeMap.image[ 1 ] = getSide(0, 1, size, image ) // nx
+        this.cubeMap.image[ 2 ] = getSide(1, 0, size, image ) // py
+        this.cubeMap.image[ 3 ] = getSide(1, 2, size, image ) // ny
+        this.cubeMap.image[ 4 ] = getSide(1, 1, size, image ) // pz
+        this.cubeMap.image[ 5 ] = getSide(3, 1, size, image ) // nz
+        this.cubeMap.needsUpdate = true;
+    }
 }
 
 export default Sky

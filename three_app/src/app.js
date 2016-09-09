@@ -8,6 +8,8 @@ import Sky from './core/sky.js'
 import Orbit from './core/orbit.js'
 import Progress from './core/progress.js'
 import TweenLite from './utils/TweenLite.js'
+import Textures from './core/textures.js'
+import Materials from './core/materials.js'
 
 class App {
 
@@ -28,18 +30,26 @@ class App {
         this.renderer = new Renderer ( this )
         this.scene = new Scene ( this ).scene
 
+        this.materials = new Materials ( this )
+
         this.progress = new Progress ( this )
         this.progress.insert()
 
         this.orbit = new Orbit ( this )
         this.lights = new Lights ( this )
+
+        const onTextureLoad = () => this.onTextureLoad ()
+        this.textures = new Textures ( this, onTextureLoad )
+
+        window.addEventListener( 'resize', ( ) => ( this.onWindowResize ( ) ) )
+    }
+
+    onTextureLoad  ( ) {
+
         this.sky = new Sky ( this )
         this.floor = new Floor ( this )
 
         this.models = new Models ( this )
-
-        window.addEventListener( 'resize', ( ) => ( this.onWindowResize ( ) ) )
-
         this.render( )
     }
 

@@ -1,16 +1,34 @@
 {
     "antialias" : true,
-    "camera_position": [0, 150, 400],
-    "ambientLight": "#0e0f0d",
+    "camera_position": [0, 170, 400],
+    "skyBoxMaterialName": "stormydays_large",
+    "env_textures": {
+        "_0": {
+            "name": "above_the_sea",
+            "file_path": "three_app/img/above_the_sea.jpg",
+            "size": 1024
+        },
+        "_1": {
+            "name": "stormydays_large",
+            "file_path": "three_app/img/stormydays_large.jpg",
+            "size": 1024
+        }
+    },
+    "textures": {
+        "_0": {
+            "name": "checkerboard",
+            "file_path": "three_app/img/checkerboard.jpg"
+        }
+    },
+    "ambientLight": "#999999",
     "font_paths" : {
         "helvetiker_bold": "three_app/fonts/helvetiker_bold.typeface.json",
         "helvetiker_regular": "three_app/fonts/helvetiker_regular.typeface.json"
     },
     "spot_lights" : {
-
-        "_1": {
+        "_0": {
             "color":        "#ff7800",
-            "position":     [ -160, 250, 100 ],
+            "position":     [ -260, 250, 100 ],
             "intensity":    1,
             "distance":     1600,
             "angle":        0.624,
@@ -18,12 +36,11 @@
             "decay":        7.7,
             "tar_position": [ 150, 10, 100 ]
         }
-
     },
 
     "point_lights" : {
 
-        "_1": {
+        "_0": {
             "color":        "#ff4400",
             "position":     [ 120, 100, 200 ],
             "intensity":    1.5,
@@ -36,43 +53,29 @@
             "intensity":    1.5,
             "distance":     300,
             "decay":        3.4
-        },
-        "_3": {
-            "color":        "#00EE00",
-            "position":     [ -400, 40, -250 ],
-            "intensity":    1.2,
-            "distance":     400,
-            "decay":        2
-        },
-        "_4": {
-            "color":        "#EE0000",
-            "position":     [ 200, 400, -200 ],
-            "intensity":    1,
-            "distance":     600,
-            "decay":        0.2
-        },
-        "_5": {
-            "color":        "#ffffff",
-            "position":     [ -40, 60, 40 ],
-            "intensity":    1,
-            "distance":     350,
-            "decay":        0.4
         }
     },
 
     "floor" : {
 
-        "materialName": "MeshPhongMaterial",
-        "paramMaterial": {
-            "color": "#FFFFFF",
-            "specular": "#fcfcfc",
-            "emissive" : "#281900",
-            "emissiveIntensity" : 0.2,
-            "shininess" : 8
+        "material": {
+
+            "name":  "MeshStandardMaterial",
+            "name_custom": "floor",
+            "params": {
+                "transparent" : true,
+                "opacity": 0.7,
+                "color": "#FFFFFF",
+                "roughness": 0.8,
+                "metalness" : 0.2,
+                "side" : 2
+            },
+            "env_map_name" : "sky_box",
+            "map_name" : "checkerboard"
         },
-        "image_path": "three_app/img/checkerboard.jpg",
+        "file_path": "three_app/img/checkerboard.jpg",
         "paramPlain": [ 1200, 1200, 1, 1],
-        "position": [ 0, -100, 0],
+        "position": [ 0, -150, 0],
         "rotation": [ -0.5, 0, 0],
         "scale":    [ 1, 1, 1]
     }
